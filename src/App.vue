@@ -1,69 +1,81 @@
 <template>
-  <form @submit.prevent="submitForm">
-    <!-- Full Name -->
-    <div>
-      <label for="fullName">Full Name</label>
-      <input
-        type="text"
-        id="fullName"
-        v-model="fullName"
-        @input="validateFullName"
-      />
-      <p v-if="errors.fullName">{{ errors.fullName }}</p>
+  <div>
+    <h1>Bader Rutter</h1>
+    <h2>Example of a Successful Job Application</h2>
+
+    <div v-for="field in getFormConfig" :key="field.id">
+      {{ field.label }}
+      {{ field.type }}
     </div>
 
-    <!-- Telephone Number -->
-    <div>
-      <label for="telephone">Telephone Number</label>
-      <input
-        type="tel"
-        id="telephone"
-        v-model="telephoneNumber"
-        @input="validateTelephone"
-      />
-      <p v-if="errors.telephone">{{ errors.telephone }}</p>
-    </div>
-
-    <!-- Interest -->
-    <div>
-      <label for="interest">Interest</label>
-      <select id="interest" v-model="interest" @change="validateInterest">
-        <option disabled value="">Please select an interest</option>
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-        <option value="option4">Option 4</option>
-        <!-- Add your options here -->
-      </select>
-      <p v-if="errors.interest">{{ errors.interest }}</p>
-    </div>
-
-    <!-- Description -->
-    <div>
-      <label for="description">Description</label>
-      <textarea
-        id="description"
-        v-model="description"
-        @input="validateDescription"
-      ></textarea>
-      <p>{{ 500 - description.length }} characters remaining</p>
-    </div>
-
-    <!-- Reference -->
-    <div>
-      <label>Reference</label>
-      <div v-for="option in referenceOptions" :key="option">
-        <input type="checkbox" :value="option" v-model="reference" />
-        <label>{{ option }}</label>
+    <hr />
+    <form @submit.prevent="submitForm">
+      <!-- Full Name -->
+      <div>
+        <label for="fullName">Full Name</label>
+        <input
+          type="text"
+          id="fullName"
+          v-model="fullName"
+          @input="validateFullName"
+        />
+        <p v-if="errors.fullName">{{ errors.fullName }}</p>
       </div>
-      <p v-if="errors.reference">{{ errors.reference }}</p>
-    </div>
 
-    <button type="submit">Submit</button>
-  </form>
+      <!-- Telephone Number -->
+      <div>
+        <label for="telephone">Telephone Number</label>
+        <input
+          type="tel"
+          id="telephone"
+          v-model="telephoneNumber"
+          @input="validateTelephone"
+        />
+        <p v-if="errors.telephone">{{ errors.telephone }}</p>
+      </div>
+
+      <!-- Interest -->
+      <div>
+        <label for="interest">Interest</label>
+        <select id="interest" v-model="interest" @change="validateInterest">
+          <option disabled value="">Please select an interest</option>
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+          <option value="option4">Option 4</option>
+          <!-- Add your options here -->
+        </select>
+        <p v-if="errors.interest">{{ errors.interest }}</p>
+      </div>
+
+      <!-- Description -->
+      <div>
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          v-model="description"
+          @input="validateDescription"
+        ></textarea>
+        <p>{{ 500 - description.length }} characters remaining</p>
+      </div>
+
+      <!-- Reference -->
+      <div>
+        <label>Reference</label>
+        <div v-for="option in referenceOptions" :key="option">
+          <input type="checkbox" :value="option" v-model="reference" />
+          <label>{{ option }}</label>
+        </div>
+        <p v-if="errors.reference">{{ errors.reference }}</p>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import { mapFields } from "vuex-map-fields";
 
 export default {
@@ -74,6 +86,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(["getFormConfig"]),
     ...mapFields([
       "formData.fullName",
       "formData.telephoneNumber",
