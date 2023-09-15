@@ -18,7 +18,7 @@
       <input
         type="tel"
         id="telephone"
-        v-model="telephone"
+        v-model="telephoneNumber"
         @input="validateTelephone"
       />
       <p v-if="errors.telephone">{{ errors.telephone }}</p>
@@ -29,6 +29,10 @@
       <label for="interest">Interest</label>
       <select id="interest" v-model="interest" @change="validateInterest">
         <option disabled value="">Please select an interest</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+        <option value="option4">Option 4</option>
         <!-- Add your options here -->
       </select>
       <p v-if="errors.interest">{{ errors.interest }}</p>
@@ -65,16 +69,18 @@ import { mapFields } from "vuex-map-fields";
 export default {
   data() {
     return {
-      telephone: "",
-      interest: "",
-      description: "",
-      reference: [],
       referenceOptions: ["Online Ad", "Recommendation", "Referral", "Other"],
       errors: {},
     };
   },
   computed: {
-    ...mapFields(["formData.fullName"]),
+    ...mapFields([
+      "formData.fullName",
+      "formData.telephoneNumber",
+      "formData.interest",
+      "formData.description",
+      "formData.reference",
+    ]),
   },
   methods: {
     validateFullName() {
