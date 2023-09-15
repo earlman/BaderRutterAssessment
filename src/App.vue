@@ -60,10 +60,11 @@
 </template>
 
 <script>
+import { mapFields } from "vuex-map-fields";
+
 export default {
   data() {
     return {
-      fullName: "",
       telephone: "",
       interest: "",
       description: "",
@@ -71,6 +72,9 @@ export default {
       referenceOptions: ["Online Ad", "Recommendation", "Referral", "Other"],
       errors: {},
     };
+  },
+  computed: {
+    ...mapFields(["formData.fullName"]),
   },
   methods: {
     validateFullName() {
@@ -126,13 +130,7 @@ export default {
 };
 </script>
 
-    Styling (optional):
-
-You can add styles to make the form look better. Here's a basic example using scoped CSS:
-
-vue
-
-<style scoped>
+<style lang="scss" scoped>
 form {
   width: 300px;
   margin: 0 auto;

@@ -9,9 +9,12 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@vitejs/plugin-vue": "^4.3.4",
+    "sass": "^1.67.0",
     "vue": "^2.7.7",
     "vue-router": "^3.5.4",
-    "vuex": "3"
+    "vuex": "3",
+    "vuex-map-fields": "^1.4.1"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
