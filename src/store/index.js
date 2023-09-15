@@ -45,6 +45,7 @@ export default new Vuex.Store({
          reference: [],
       },
       formConfig: formConfig,
+      formSubmission: {},
    },
    getters: {
       getField,
@@ -54,5 +55,24 @@ export default new Vuex.Store({
    },
    mutations: {
       updateField,
+      SET_FORM_SUBMISSION: (state, payload) => {
+         state.formSubmission = payload;
+      },
+   },
+   actions: {
+      async validateForm({ state }) {
+         return false;
+      },
+      submitForm({ state, dispatch, commit }) {
+         dispatch("validateForm").then((r) => {
+            console.log(r);
+
+            if (r == true) {
+               commit("SET_FORM_SUBMISSION");
+            } else {
+               window.alert("Please correct the errors");
+            }
+         });
+      },
    },
 });

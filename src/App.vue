@@ -3,9 +3,12 @@
     <h1>Bader Rutter</h1>
     <h2>Example of a Successful Job Application</h2>
 
-    <div v-for="field in getFormConfig" :key="field.id">
-      <component :is="field.component + 'Field'" :name="field.id"></component>
-    </div>
+    <form @click.prevent="submitForm">
+      <div v-for="field in getFormConfig" :key="field.id">
+        <component :is="field.component + 'Field'" :name="field.id"></component>
+      </div>
+      <button>Submit</button>
+    </form>
 
     <hr />
     <form @submit.prevent="submitForm">
@@ -74,7 +77,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import { mapFields } from "vuex-map-fields";
 import TextField from "./components/FormFields/Text.vue";
 import PhoneField from "./components/FormFields/Phone.vue";
@@ -100,6 +103,7 @@ export default {
     ]),
   },
   methods: {
+    ...mapActions(["submitForm"]),
     validateFullName() {
       if (!this.fullName) {
         this.errors.fullName = "Full Name is required.";
@@ -138,17 +142,17 @@ export default {
         delete this.errors.reference;
       }
     },
-    submitForm() {
-      this.validateFullName();
-      this.validateTelephone();
-      this.validateInterest();
-      this.validateDescription();
-      this.validateReference();
+    // submitForm() {
+    //   this.validateFullName();
+    //   this.validateTelephone();
+    //   this.validateInterest();
+    //   this.validateDescription();
+    //   this.validateReference();
 
-      if (Object.keys(this.errors).length === 0) {
-        // Submit the form
-      }
-    },
+    //   if (Object.keys(this.errors).length === 0) {
+    //     // Submit the form
+    //   }
+    // },
   },
   components: {
     CheckboxGroupField,
