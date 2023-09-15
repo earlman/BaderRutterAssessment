@@ -8,28 +8,28 @@ Vue.use(Vuex);
 
 const formConfig = [
    {
-      type: "text",
+      component: "Text",
       label: "Full Name",
       id: "fll",
    },
    {
-      type: "phone",
+      component: "Phone",
       label: "Telephone Number",
       id: "tlp",
    },
    {
-      type: "select",
+      component: "Select",
       label: "Interest",
       options: ["Option 1", "Option 2", "Option 3"],
       id: "ntr",
    },
    {
-      type: "textarea",
+      component: "TextArea",
       label: "Description",
       id: "dsc",
    },
    {
-      type: "checkboxgroup",
+      component: "CheckboxGroup",
       label: "Reference",
       id: "rfr",
    },

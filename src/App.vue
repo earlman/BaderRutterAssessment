@@ -4,8 +4,7 @@
     <h2>Example of a Successful Job Application</h2>
 
     <div v-for="field in getFormConfig" :key="field.id">
-      {{ field.label }}
-      {{ field.type }}
+      <component :is="field.component + 'Field'" :name="field.id"></component>
     </div>
 
     <hr />
@@ -77,6 +76,11 @@
 <script>
 import { mapGetters } from "vuex";
 import { mapFields } from "vuex-map-fields";
+import TextField from "./components/FormFields/Text.vue";
+import PhoneField from "./components/FormFields/Phone.vue";
+import CheckboxGroupField from "./components/FormFields/CheckboxGroup.vue";
+import SelectField from "./components/FormFields/Select.vue";
+import TextAreaField from "./components/FormFields/TextArea.vue";
 
 export default {
   data() {
@@ -145,6 +149,13 @@ export default {
         // Submit the form
       }
     },
+  },
+  components: {
+    CheckboxGroupField,
+    PhoneField,
+    SelectField,
+    TextField,
+    TextAreaField,
   },
 };
 </script>
