@@ -2,7 +2,7 @@ import arrayToObject from "vuex-map-fields/src/lib/array-to-object";
 
 /* 
 
-This solution was taken from https://github.com/maoberlehner/vuex-map-fields/issues/24#issuecomment-521175379 
+This solution is based on https://github.com/maoberlehner/vuex-map-fields/issues/24#issuecomment-521175379 
 
 This implementation could be cleaned up considerably. It requires an additional "data" property in our formData (see formConfig.js -> initialFormData), but I'll leave it as-is for the sake of time. 
 

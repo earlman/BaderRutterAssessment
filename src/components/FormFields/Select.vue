@@ -30,7 +30,7 @@ export default {
   methods: {
     validateInterest() {
       if (!this.data) {
-        this.errors = "Interest is required.";
+        this.errors = "A selection is required.";
       } else {
         this.errors = null;
       }

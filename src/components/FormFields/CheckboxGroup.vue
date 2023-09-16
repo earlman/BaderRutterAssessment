@@ -30,7 +30,7 @@ export default {
   methods: {
     validateReference() {
       if (!this.reference.length) {
-        this.errors.reference = "At least one reference is required.";
+        this.errors.reference = "At least one item is required.";
       } else {
         delete this.errors.reference;
       }

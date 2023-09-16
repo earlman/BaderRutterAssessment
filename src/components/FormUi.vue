@@ -1,5 +1,7 @@
 <template>
   <main>
+    <Modal />
+
     <h1>Bader Rutter</h1>
     <h2>Example of a Successful Job Application</h2>
     <form @submit.prevent="submitForm">
@@ -13,9 +15,10 @@
           :id="field.id"
         ></component>
       </div>
-      <button v-if="!formHasError && formDataIsComplete" button>Submit</button>
+      <button v-if="!formHasError && formDataIsComplete" @click="submitForm">
+        Submit
+      </button>
     </form>
-    <hr />
   </main>
 </template>
 
@@ -27,16 +30,15 @@ import PhoneField from "./FormFields/Phone.vue";
 import CheckboxGroupField from "./FormFields/CheckboxGroup.vue";
 import SelectField from "./FormFields/Select.vue";
 import TextAreaField from "./FormFields/TextArea.vue";
+import Modal from "./Modal.vue";
 
 export default {
   computed: {
-    ...mapGetters(["getFormConfig", "formDataIsComplete", "formHasError"]),
-    ...mapFields([
-      "formData.fullName",
-      "formData.telephoneNumber",
-      "formData.interest",
-      "formData.description",
-      "formData.reference",
+    ...mapGetters([
+      "getFormData",
+      "getFormConfig",
+      "formDataIsComplete",
+      "formHasError",
     ]),
   },
   methods: {
@@ -48,6 +50,7 @@ export default {
     SelectField,
     TextField,
     TextAreaField,
+    Modal,
   },
 };
 </script>

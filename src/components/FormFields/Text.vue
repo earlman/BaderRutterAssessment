@@ -32,7 +32,7 @@ export default {
       if (!this.data) {
         this.errors = "Full Name is required.";
       } else if (this.data.length < 3) {
-        this.errors = "Full Name must be at least 3 characters.";
+        this.errors = "Response must be at least 3 characters.";
       } else {
         this.errors = null;
       }

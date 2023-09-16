@@ -28,22 +28,42 @@ export default {
          id: "rfr",
       },
    ],
+   // initialFormData: {
+   //    //required to initialize vuex data
+   //    fll: {
+   //       data: "",
+   //    },
+   //    tlp: {
+   //       data: "",
+   //    },
+   //    ntr: {
+   //       data: "",
+   //    },
+   //    dsc: {
+   //       data: "",
+   //    },
+   //    rfr: {
+   //       data: [],
+   //    }, // fields with multiple options must be initialized with an array
+   // },
+   //
+   // COMPLETE VERSION FOR TESTING
    initialFormData: {
       //required to initialize vuex data
       fll: {
-         data: "",
+         data: "asdf",
       },
       tlp: {
-         data: "",
+         data: "124124",
       },
       ntr: {
-         data: "",
+         data: "Option 1",
       },
       dsc: {
-         data: "",
+         data: "asdf",
       },
       rfr: {
-         data: [],
+         data: ["Online Ad"],
       }, // fields with multiple options must be initialized with an array
    },
 };
