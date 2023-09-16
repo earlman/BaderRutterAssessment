@@ -30,10 +30,20 @@ export default {
    ],
    initialFormData: {
       //required to initialize vuex data
-      fll: "",
-      tlp: "",
-      ntr: "",
-      dsc: "",
-      rfr: [], // fields with multiple options must be initialized with an array
+      fll: {
+         data: "",
+      },
+      tlp: {
+         data: "",
+      },
+      ntr: {
+         data: "",
+      },
+      dsc: {
+         data: "",
+      },
+      rfr: {
+         data: [],
+      }, // fields with multiple options must be initialized with an array
    },
 };

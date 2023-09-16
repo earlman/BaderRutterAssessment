@@ -10,6 +10,7 @@
           :is="field.component + 'Field'"
           :name="field.id"
           :config="field"
+          :id="field.id"
         ></component>
       </div>
       <button>Submit</button>
@@ -91,13 +92,6 @@ import TextAreaField from "./components/FormFields/TextArea.vue";
 export default {
   data() {
     return {
-      config: formConfig.config,
-      fullName: "",
-      telephone: "",
-      interest: "",
-      description: "",
-      reference: [],
-      referenceOptions: ["Online Ad", "Recommendation", "Referral", "Other"],
       errors: {},
     };
   },

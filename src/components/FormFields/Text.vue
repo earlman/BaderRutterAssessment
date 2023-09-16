@@ -1,22 +1,26 @@
 <template>
   <div>
     <label :for="config.label">{{ config.label }}</label>
-    <input type="text" :id="config.id" v-model="fll" />
+    <input type="text" :id="config.id" v-model="data" />
+    <p v-if="errors.fullName">{{ errors.fullName }}</p>
   </div>
 </template>
 
 <script>
-import { mapFields } from "vuex-map-fields";
+import { mapDynamicFields } from "@/mapDynamicFields.js";
 
 export default {
-  props: ["config"],
+  props: ["config", "id"],
   data() {
     return {
       errors: {},
     };
   },
   computed: {
-    ...mapFields([`formData.fll`]),
+    ...mapDynamicFields(["formData[].data"], "indexArray"),
+    indexArray() {
+      return this.id;
+    },
   },
   methods: {
     validateFullName() {
