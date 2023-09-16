@@ -1,10 +1,9 @@
 # Bade Rutter Assessment
-by Earl Justin Mangulabnan
+by Earl Justin Mangulabnan ✌🏼
 
 - Vue 2.x
 - Vuex 3.x
 
-✌🏼
 
 ```
 yarn
