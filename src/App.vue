@@ -5,7 +5,7 @@
 
     <!--Currently, fields are not dynamic. using vuex to store form data requires vuex-map-fields, which currently doesn't support dynamic field ids-->
     <form @submit.prevent="submitForm">
-      <div v-for="field in config" :key="field.id">
+      <div v-for="field in getFormConfig" :key="field.id">
         <component
           :is="field.component + 'Field'"
           :name="field.id"
@@ -80,7 +80,6 @@
 </template>
 
 <script>
-import formConfig from "@/formConfig.js";
 import { mapGetters, mapActions } from "vuex";
 import { mapFields } from "vuex-map-fields";
 import TextField from "./components/FormFields/Text.vue";

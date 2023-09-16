@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import formConfig from "@/formConfig";
+import formConfig from "./formConfig";
 
 // vuex-map-fields links state with form fields within components
 import { getField, updateField } from "vuex-map-fields";
@@ -9,6 +9,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
    state: {
+      formConfig: formConfig.config,
       formData: formConfig.initialFormData,
       formSubmission: {},
    },
