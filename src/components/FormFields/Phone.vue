@@ -1,22 +1,25 @@
 <template>
   <div>
     <label :for="config.label">{{ config.label }}</label>
-    <input type="text" :id="config.id" v-model="tlp" />
+    <input type="text" :id="config.id" v-model="data" />
   </div>
 </template>
 
 <script>
-import { mapFields } from "vuex-map-fields";
+import { mapDynamicFields } from "@/mapDynamicFields.js";
 
 export default {
-  props: ["config"],
+  props: ["config", "id"],
   data() {
     return {
       errors: {},
     };
   },
   computed: {
-    ...mapFields([`formData.tlp`]),
+    ...mapDynamicFields(["formData[].data"], "indexArray"),
+    indexArray() {
+      return this.id;
+    },
   },
   methods: {
     validateTelephone() {

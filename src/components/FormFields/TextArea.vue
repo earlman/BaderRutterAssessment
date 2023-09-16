@@ -4,26 +4,32 @@
       <label :for="config.label">{{ config.label }}</label>
       <textarea
         :id="config.id"
-        v-model="dsc"
+        v-model="data"
         @input="validateDescription"
       ></textarea>
-      <p>{{ 500 - dsc.length }} characters remaining</p>
+      <!---
+      
+        <p>{{ 500 - dsc.length }} characters remaining</p>
+        ----->
     </div>
   </div>
 </template>
 
 <script>
-import { mapFields } from "vuex-map-fields";
+import { mapDynamicFields } from "@/mapDynamicFields.js";
 
 export default {
-  props: ["config"],
+  props: ["config", "id"],
   data() {
     return {
       errors: {},
     };
   },
   computed: {
-    ...mapFields([`formData.dsc`]),
+    ...mapDynamicFields(["formData[].data"], "indexArray"),
+    indexArray() {
+      return this.id;
+    },
   },
   methods: {
     validateDescription() {

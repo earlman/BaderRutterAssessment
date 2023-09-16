@@ -2,30 +2,30 @@
   <div>
     <div>
       <label>{{ config.label }}</label>
-      <div v-for="o in config.options" :key="option">
-        <input type="checkbox" :value="o" v-model="rfr" />
-        <label>{{ o }}</label>
+      <div v-for="(o, i) in config.options" :key="o">
+        <input type="checkbox" :id="i" :value="o" v-model="data" />
+        <label :for="i">{{ o }}</label>
       </div>
       <p v-if="errors.reference">{{ errors.reference }}</p>
     </div>
-
-    <label :for="config.label">{{ config.label }}</label>
-    <input type="text" :id="config.id" v-model="tlp" />
   </div>
 </template>
 
 <script>
-import { mapFields } from "vuex-map-fields";
+import { mapDynamicFields } from "@/mapDynamicFields.js";
 
 export default {
-  props: ["config"],
+  props: ["config", "id"],
   data() {
     return {
       errors: {},
     };
   },
   computed: {
-    ...mapFields([`formData.rfr`]),
+    ...mapDynamicFields(["formData[].data"], "indexArray"),
+    indexArray() {
+      return this.id;
+    },
   },
   methods: {
     validateReference() {

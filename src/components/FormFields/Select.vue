@@ -2,7 +2,7 @@
   <div>
     <div>
       <label :for="config.label">{{ config.label }}</label>
-      <select id="interest" v-model="ntr" @change="validateInterest">
+      <select id="interest" v-model="data" @change="validateInterest">
         <option disabled value="">Please select an interest</option>
         <option v-for="o in config.options" :key="o">{{ o }}</option>
       </select>
@@ -12,17 +12,20 @@
 </template>
 
 <script>
-import { mapFields } from "vuex-map-fields";
+import { mapDynamicFields } from "@/mapDynamicFields.js";
 
 export default {
-  props: ["config"],
+  props: ["config", "id"],
   data() {
     return {
       errors: {},
     };
   },
   computed: {
-    ...mapFields([`formData.ntr`]),
+    ...mapDynamicFields(["formData[].data"], "indexArray"),
+    indexArray() {
+      return this.id;
+    },
   },
   methods: {
     validateInterest() {
