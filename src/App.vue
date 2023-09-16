@@ -3,7 +3,6 @@
     <h1>Bader Rutter</h1>
     <h2>Example of a Successful Job Application</h2>
 
-    <!--Currently, fields are not dynamic. using vuex to store form data requires vuex-map-fields, which currently doesn't support dynamic field ids-->
     <form @submit.prevent="submitForm">
       <div v-for="field in getFormConfig" :key="field.id">
         <component
