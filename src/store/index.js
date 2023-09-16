@@ -13,10 +13,7 @@ export default new Vuex.Store({
       formData: formConfig.initialFormData,
       formError: false,
       formSubmission: {},
-      modal: {
-         isVisible: false,
-         content: null,
-      },
+      modal: false,
    },
    mutations: {
       updateField,
