@@ -30,7 +30,7 @@ export default {
   methods: {
     validateTelephone() {
       if (!/^\d+$/.test(this.data)) {
-        this.errors = "Telephone Number must contain numbers and only numbers.";
+        this.errors = "Response must contain only numbers.";
       } else {
         this.errors = null;
       }
