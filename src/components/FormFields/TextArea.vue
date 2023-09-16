@@ -1,16 +1,15 @@
 <template>
   <div>
     <div>
-      <label :for="config.label">{{ config.label }}</label>
+      <label :for="config.id">{{ config.label }}</label>
       <textarea
         :id="config.id"
         v-model="data"
         @input="validateDescription"
       ></textarea>
-      <!---
-      
-        <p>{{ 500 - dsc.length }} characters remaining</p>
-        ----->
+      <p :class="{ error: errors }">
+        {{ 500 - data.length }} characters remaining
+      </p>
     </div>
   </div>
 </template>
@@ -22,7 +21,7 @@ export default {
   props: ["config", "id"],
   data() {
     return {
-      errors: {},
+      errors: null,
     };
   },
   computed: {
@@ -33,11 +32,10 @@ export default {
   },
   methods: {
     validateDescription() {
-      if (this.description.length > 500) {
-        this.errors.description =
-          "Description must be less than 500 characters.";
+      if (this.data.length > 500) {
+        this.errors = "Description must be less than 500 characters.";
       } else {
-        delete this.errors.description;
+        this.errors = null;
       }
     },
   },

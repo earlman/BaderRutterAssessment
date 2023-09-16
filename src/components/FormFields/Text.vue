@@ -1,8 +1,13 @@
 <template>
   <div>
-    <label :for="config.label">{{ config.label }}</label>
-    <input type="text" :id="config.id" v-model="data" />
-    <p v-if="errors.fullName">{{ errors.fullName }}</p>
+    <label :for="config.id">{{ config.label }}</label>
+    <input
+      type="text"
+      :id="config.id"
+      v-model="data"
+      @input="validateFullName"
+    />
+    <p class="error" v-if="errors">{{ errors }}</p>
   </div>
 </template>
 
@@ -13,7 +18,7 @@ export default {
   props: ["config", "id"],
   data() {
     return {
-      errors: {},
+      errors: null,
     };
   },
   computed: {
@@ -24,12 +29,12 @@ export default {
   },
   methods: {
     validateFullName() {
-      if (!this.fullName) {
-        this.errors.fullName = "Full Name is required.";
-      } else if (this.fullName.length < 3) {
-        this.errors.fullName = "Full Name must be at least 3 characters.";
+      if (!this.data) {
+        this.errors = "Full Name is required.";
+      } else if (this.data.length < 3) {
+        this.errors = "Full Name must be at least 3 characters.";
       } else {
-        delete this.errors.fullName;
+        this.errors = null;
       }
     },
   },

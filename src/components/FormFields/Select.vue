@@ -1,12 +1,12 @@
 <template>
   <div>
     <div>
-      <label :for="config.label">{{ config.label }}</label>
-      <select id="interest" v-model="data" @change="validateInterest">
+      <label :for="config.id">{{ config.label }}</label>
+      <select id="config.id" v-model="data" @change="validateInterest">
         <option disabled value="">Please select an interest</option>
         <option v-for="o in config.options" :key="o">{{ o }}</option>
       </select>
-      <p v-if="errors.interest">{{ errors.interest }}</p>
+      <p class="error" v-if="errors">{{ errors }}</p>
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
   props: ["config", "id"],
   data() {
     return {
-      errors: {},
+      errors: null,
     };
   },
   computed: {
@@ -29,10 +29,10 @@ export default {
   },
   methods: {
     validateInterest() {
-      if (!this.interest) {
-        this.errors.interest = "Interest is required.";
+      if (!this.data) {
+        this.errors = "Interest is required.";
       } else {
-        delete this.errors.interest;
+        this.errors = null;
       }
     },
   },

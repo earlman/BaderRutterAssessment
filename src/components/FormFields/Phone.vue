@@ -1,7 +1,13 @@
 <template>
   <div>
-    <label :for="config.label">{{ config.label }}</label>
-    <input type="text" :id="config.id" v-model="data" />
+    <label :for="config.id">{{ config.label }}</label>
+    <input
+      type="text"
+      :id="config.id"
+      v-model="data"
+      @input="validateTelephone"
+    />
+    <p class="error" v-if="errors">{{ errors }}</p>
   </div>
 </template>
 
@@ -12,7 +18,7 @@ export default {
   props: ["config", "id"],
   data() {
     return {
-      errors: {},
+      errors: null,
     };
   },
   computed: {
@@ -23,10 +29,10 @@ export default {
   },
   methods: {
     validateTelephone() {
-      if (!/^\d+$/.test(this.telephone)) {
-        this.errors.telephone = "Telephone Number must only contain numbers.";
+      if (!/^\d+$/.test(this.data)) {
+        this.errors = "Telephone Number must only contain numbers.";
       } else {
-        delete this.errors.telephone;
+        this.errors = null;
       }
     },
   },

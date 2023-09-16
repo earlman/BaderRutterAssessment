@@ -6,7 +6,7 @@
         <input type="checkbox" :id="i" :value="o" v-model="data" />
         <label :for="i">{{ o }}</label>
       </div>
-      <p v-if="errors.reference">{{ errors.reference }}</p>
+      <p class="error" v-if="errors.reference">{{ errors.reference }}</p>
     </div>
   </div>
 </template>
