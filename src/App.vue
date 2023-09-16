@@ -3,16 +3,20 @@
     <h1>Bader Rutter</h1>
     <h2>Example of a Successful Job Application</h2>
 
-    <form @click.prevent="submitForm">
-      <div v-for="field in getFormConfig" :key="field.id">
-        <component :is="field.component + 'Field'" :name="field.id"></component>
+    <!--Currently, fields are not dynamic. using vuex to store form data requires vuex-map-fields, which currently doesn't support dynamic field ids-->
+    <form @submit.prevent="submitForm">
+      <div v-for="field in config" :key="field.id">
+        <component
+          :is="field.component + 'Field'"
+          :name="field.id"
+          :config="field"
+        ></component>
       </div>
       <button>Submit</button>
     </form>
 
     <hr />
     <form @submit.prevent="submitForm">
-      <!-- Full Name -->
       <div>
         <label for="fullName">Full Name</label>
         <input
@@ -77,6 +81,7 @@
 </template>
 
 <script>
+import formConfig from "@/formConfig.js";
 import { mapGetters, mapActions } from "vuex";
 import { mapFields } from "vuex-map-fields";
 import TextField from "./components/FormFields/Text.vue";
@@ -88,12 +93,18 @@ import TextAreaField from "./components/FormFields/TextArea.vue";
 export default {
   data() {
     return {
+      config: formConfig.config,
+      fullName: "",
+      telephone: "",
+      interest: "",
+      description: "",
+      reference: [],
       referenceOptions: ["Online Ad", "Recommendation", "Referral", "Other"],
       errors: {},
     };
   },
   computed: {
-    ...mapGetters(["getFormConfig"]),
+    // ...mapGetters(["getFormConfig"]),
     ...mapFields([
       "formData.fullName",
       "formData.telephoneNumber",
