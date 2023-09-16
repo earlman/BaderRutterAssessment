@@ -34,8 +34,10 @@ export default {
     validateDescription() {
       if (this.data.length > 500) {
         this.errors = "Description must be less than 500 characters.";
+        this.$store.dispatch("setError", true);
       } else {
         this.errors = null;
+        this.$store.dispatch("setError", false);
       }
     },
   },

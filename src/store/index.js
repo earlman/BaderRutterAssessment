@@ -11,18 +11,39 @@ export default new Vuex.Store({
    state: {
       formConfig: formConfig.config,
       formData: formConfig.initialFormData,
+      formError: false,
       formSubmission: {},
+   },
+   mutations: {
+      updateField,
+      SET_FORM_SUBMISSION: (state, payload) => {
+         state.formSubmission = payload;
+      },
+      SET_FORM_ERROR: (state, payload) => {
+         state.formError = payload;
+      },
    },
    getters: {
       getField,
       getFormConfig: (state) => {
          return state.formConfig;
       },
-   },
-   mutations: {
-      updateField,
-      SET_FORM_SUBMISSION: (state, payload) => {
-         state.formSubmission = payload;
+      formDataIsComplete: (state) => {
+         // check that all objects
+
+         const formDataIsComplete = Object.values(state.formData).every((field) => {
+            if (Array.isArray(field.data)) {
+               return field.data.length > 0;
+            } else if (typeof field.data === "string") {
+               return field.data.trim() !== "";
+            }
+            return false;
+         });
+
+         return formDataIsComplete;
+      },
+      formHasError: (state) => {
+         return state.formError;
       },
    },
    actions: {
@@ -39,6 +60,9 @@ export default new Vuex.Store({
                window.alert("Please correct the errors");
             }
          });
+      },
+      setError({ commit }, data) {
+         commit("SET_FORM_ERROR", data);
       },
    },
 });
