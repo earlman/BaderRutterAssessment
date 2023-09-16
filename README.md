@@ -8,13 +8,14 @@ by Earl Justin Mangulabnan
 
 - - - 
 
-## Requirements:
-**Task**
+## Prompt:
+### Task
+
 Using Vue CLI and Vue 2 (Options API), create a dynamically populated, styled form that interacts with a Vuex store where upon successful submission, displays the results in a modal. Please comment your work as you would in handing this work off to another developer. 
   
 Completed code should be provided via link to public repository (GitHub, BitBucket, etc)
 
-**Criteria**
+### Criteria
 - [x] Must use SCSS for styling
 - [x] Must _not_ use any UI framework (such as Bootstrap Vue, Vuetify, etc)
 - [x] Validation
