@@ -6,6 +6,11 @@ by Earl Justin Mangulabnan
 
 ✌🏼
 
+```
+yarn
+yarn dev
+```
+
 - - - 
 
 ## Prompt:
