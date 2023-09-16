@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <main>
     <h1>Bader Rutter</h1>
     <h2>Example of a Successful Job Application</h2>
     <form @submit.prevent="submitForm">
+      <p>All fields are required.</p>
       <div v-for="field in getFormConfig" :key="field.id">
         <component
           :is="field.component + 'Field'"
@@ -14,7 +15,7 @@
       <button v-if="!formHasError && formDataIsComplete" button>Submit</button>
     </form>
     <hr />
-  </div>
+  </main>
 </template>
 
 <script>
@@ -51,19 +52,48 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+* {
+  font-family: "Fraunces Variable";
+}
+
+main {
+  display: flex;
+  margin: auto;
+  max-width: 400px;
+  flex-direction: column;
+  align-content: center;
+
+  h1,
+  h2 {
+    font-weight: 500;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+  h2 {
+    margin-top: 0;
+  }
+}
+
 ::v-deep form {
-  width: 300px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  > * {
+    margin-bottom: 2rem;
+  }
 
   label {
     display: block;
-    margin-top: 10px;
+    font-weight: 500;
   }
   input,
   select,
   textarea {
     width: 100%;
     padding: 5px;
+    box-sizing: border-box;
     margin-top: 5px;
   }
 

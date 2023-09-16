@@ -59,6 +59,11 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.49.0.tgz#86f79756004a97fa4df866835093f1df3d03c333"
   integrity sha512-1S8uAY/MTJqVx0SC4epBq+N2yhuwtNwLbJYNZyhL2pO1ZVKn5HFXav5T41Ryzy9K9V7ZId2JB2oy/W4aCd9/2w==
 
+"@fontsource-variable/fraunces@^5.0.13":
+  version "5.0.13"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/fraunces/-/fraunces-5.0.13.tgz#43a98211db4f76826e2441efa544af6cb5ec683d"
+  integrity sha512-v9SN0wtT3gUgWx2VyGuHZ6mFAUjVwHrOeXqdqSH+fWrxCA4Z5qhr1o1T8qjIWf5tYVMCKKEh/H5JbXSLHjYXog==
+
 "@humanwhocodes/config-array@^0.11.11":
   version "0.11.11"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.11.tgz#88a04c570dbbc7dd943e4712429c3df09bc32844"

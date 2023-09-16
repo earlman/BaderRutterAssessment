@@ -2,9 +2,9 @@
   <div>
     <div>
       <label>{{ config.label }}</label>
-      <div v-for="(o, i) in config.options" :key="o">
+      <div class="item" v-for="(o, i) in config.options" :key="o">
         <input type="checkbox" :id="i" :value="o" v-model="data" />
-        <label :for="i">{{ o }}</label>
+        <label class="item-label" :for="i">{{ o }}</label>
       </div>
       <p class="error" v-if="errors.reference">{{ errors.reference }}</p>
     </div>
@@ -38,3 +38,19 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.item {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+input[type="checkbox"] {
+  width: 3rem;
+}
+.item-label {
+  width: 100%;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+</style>
