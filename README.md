@@ -1,35 +1,51 @@
-# .
+# Bade Rutter Assessment
+by Earl Justin Mangulabnan
 
-This template should help get you started developing with Vue 3 in Vite.
+- Vue 2.x
+- Vuex 3.x
 
-## Recommended IDE Setup
+✌🏼
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- - - 
 
-## Customize configuration
+## Requirements:
+**Task**
+Using Vue CLI and Vue 2 (Options API), create a dynamically populated, styled form that interacts with a Vuex store where upon successful submission, displays the results in a modal. Please comment your work as you would in handing this work off to another developer. 
+  
+Completed code should be provided via link to public repository (GitHub, BitBucket, etc)
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+**Criteria**
+- [x] Must use SCSS for styling
+- [x] Must _not_ use any UI framework (such as Bootstrap Vue, Vuetify, etc)
+- [x] Validation
+	- Must not use a 3rd party library to handle validation
+	- Form validation should **not** be handled by the browser
+	- Submission button should only appear if all form fields are deemed valid
+- [x] Form may only be submittable if all fields pass validation
+- [x] Form fields should be derived from an array of objects
+- [x] Fields should have a use consistent, reusable label structure
+- [x] All fields must be required and should be reflected in both the UI and validation
+- [x] Form should contain at least:
+	- Text input
+		- Label: Full Name
+			- Validation:
+				- Must have a value
+				- Must be at least 3 characters
+	- Telephone number
+		- Label: Telephone Number
+		- Validation:
+			- Must only allow numbers
+	- Select input
+		- Label: Interest
+		- Options: 
+		- Validation: 
+			- Must have a valid selection
+	- Textarea
+		- Label: Description
+		- Limited to 500 characters (with visual display of remaining characters)
+	- Checkbox group
+		- Label: Reference
+		- Options: Online Ad, Recommendation, Referral, Other
+		- Validation: 
+			- Must have valid selection
+		
