@@ -24,7 +24,6 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { mapFields } from "vuex-map-fields";
 import TextField from "./FormFields/Text.vue";
 import PhoneField from "./FormFields/Phone.vue";
 import CheckboxGroupField from "./FormFields/CheckboxGroup.vue";
