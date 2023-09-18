@@ -1,9 +1,9 @@
 export default {
    config: [
       {
-         component: "Text",
+         component: "Text", // should match a component in `src/components/FormFields`
          label: "Full Name",
-         id: "fll",
+         id: "fll", // should match an object in "initialFormData" object below
       },
       {
          component: "Phone",
@@ -47,7 +47,7 @@ export default {
       }, // fields with multiple options must be initialized with an array
    },
    //
-   // COMPLETE VERSION FOR TESTING
+   // COMPLETD VERSION FOR TESTING
    // initialFormData: {
    //    //required to initialize vuex data
    //    fll: {
