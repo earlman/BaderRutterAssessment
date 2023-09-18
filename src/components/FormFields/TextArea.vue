@@ -25,8 +25,8 @@ export default {
     };
   },
   computed: {
-    ...mapDynamicFields(["formData[].data"], "indexArray"),
-    indexArray() {
+    ...mapDynamicFields(["formData[].data"], "index"),
+    index() {
       return this.id;
     },
   },

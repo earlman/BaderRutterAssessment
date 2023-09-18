@@ -14,8 +14,8 @@ Special vuex-map-field like helper to manage fields inside dynamically defined i
 Usage :
 
 computed: {
-    ...mapDynamicFields('my/store/module', ['bigArray[].fieldName'], 'indexArray'),
-    indexArray() {
+    ...mapDynamicFields('my/store/module', ['bigArray[].fieldName'], 'index'),
+    index() {
         return 42;
     }
 }
